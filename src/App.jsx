@@ -7,8 +7,8 @@ import Authlayout from './layout/authlayout';
 import Feed from './pages/feed';
 import Profile from './pages/profile';
 import Notfound from './pages/notfound';
-import Signin from './pages/SignIn';
-import Signup from './pages/SignUp';  
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp'; 
 import  Protectedroute from './protectedRoutes/protectedroute';
 import   AuthContextProvider  from './components/contexts/authContext';
 import ProtectedAuthRoute from './protectedRoutes/protectedauthRoute';
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
 
 
   {path:'',element:< Authlayout/>,children:[ 
-      {path:'signin', element:<ProtectedAuthRoute><Signin/></ProtectedAuthRoute>},
-     {path:'signup', element:<ProtectedAuthRoute><Signup/></ProtectedAuthRoute>},
+      {path:'signin', element:<ProtectedAuthRoute><SignIn/></ProtectedAuthRoute>},
+     {path:'signup', element:<ProtectedAuthRoute><SignUp/></ProtectedAuthRoute>},
   ]
 },
 
