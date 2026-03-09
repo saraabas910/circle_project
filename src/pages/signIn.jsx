@@ -11,7 +11,7 @@ import { AuthContext } from '../components/contexts/authContext';
 
 
 
-export default function Signin() {
+export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
   const [errmsg, setErrmsg] = useState("");  
   const {setUserToken} = useContext(AuthContext);
