@@ -8,7 +8,7 @@ import Feed from './pages/feed';
 import Profile from './pages/profile';
 import Notfound from './pages/notfound';
 import Signin from './pages/SignIn';
-import Signup from './pages/Signup';  
+import Signup from './pages/SignUp';  
 import  Protectedroute from './protectedRoutes/protectedroute';
 import   AuthContextProvider  from './components/contexts/authContext';
 import ProtectedAuthRoute from './protectedRoutes/protectedauthRoute';
