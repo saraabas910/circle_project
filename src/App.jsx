@@ -13,7 +13,7 @@ import  Protectedroute from './protectedRoutes/protectedroute';
 import   AuthContextProvider  from './components/contexts/authContext';
 import ProtectedAuthRoute from './protectedRoutes/protectedauthRoute';
 import Postdetails from './pages/Postdetails';
-
+import Changepassword from './pages/changepassword';
 
 
 
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
     {index:true, element:<Protectedroute><Feed/></Protectedroute>},
     {path:'profile', element:<Protectedroute><Profile/></Protectedroute>},
     {path:'posts/:postId', element:<Protectedroute><Postdetails/></Protectedroute>},
+    {path:'change-password', element:<Protectedroute><Changepassword/></Protectedroute>},
     {path:'*', element:<Notfound/>},
   ]
 
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
   {path:'',element:< Authlayout/>,children:[ 
       {path:'signin', element:<ProtectedAuthRoute><SignIn/></ProtectedAuthRoute>},
      {path:'signup', element:<ProtectedAuthRoute><SignUp/></ProtectedAuthRoute>},
+     
   ]
 },
 

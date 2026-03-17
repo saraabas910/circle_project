@@ -26,13 +26,11 @@ export default function CreatePost({ getPosts }) {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${UserToken}`,
-            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${UserToken}`
           },
         }
       );
-
-      getPosts && getPosts();
+          getPosts();
 
       setBody("");
       setImage(null);
@@ -48,7 +46,14 @@ export default function CreatePost({ getPosts }) {
      
     setImage(null);
     setPreview(null);
+
+
   }
+   
+
+
+
+
 
   return (
     <div className="bg-white rounded-xl shadow p-4">

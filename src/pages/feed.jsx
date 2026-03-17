@@ -23,7 +23,7 @@ export default function feed() {
     }
   );
           setPosts(data.data.posts);
-          console.log(data);
+         /*console.log("psts",data);*/
 
         
           
@@ -38,7 +38,7 @@ export default function feed() {
 
       
          
-    <div className="max-w-xl mx-auto py-10 grid gap-6">
+    <div className="w-full py-10 flex flex-col gap-6 px-4" style={{maxWidth: "600px", margin: "0 auto"}}>
       <CreatePost getPosts={getposts} />
 
        {posts.map((post)=>{

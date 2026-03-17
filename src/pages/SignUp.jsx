@@ -6,7 +6,7 @@ import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {zodSchema} from '../validations/signupschema';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 
 export default function SignUp() {
@@ -111,6 +111,9 @@ async function singup(registerData){
           </Select>
 
         <Button type="submit" color="primary" variant="solid" isLoading={isLoading}>Sign up</Button>
+        <Link to="/signin" className="text-blue-500 hover:underline mt-2 inline-block">
+          Already have account?
+        </Link>
         <p>{errmsg}</p>
           </div>
         </form>

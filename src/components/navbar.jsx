@@ -17,16 +17,19 @@ import { AuthContext } from './contexts/authContext';
 
 
 export default function navbar() {
-  const { setUserToken } = useContext(AuthContext);
+
+  const navigate=useNavigate()
+  const { setUserToken, userData } = useContext(AuthContext);
 
 
-     function logOut(){
 
-    localStorage.removeItem("token"); 
-    setUserToken(null);
-
-     }
-
+    function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userData"); 
+  setUserToken(null);
+  setUserData(null); 
+  navigate("/signin");
+}
   return (
       <HerouiNavbar>
       <NavbarBrand>
@@ -44,18 +47,21 @@ export default function navbar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src= {userData.photo}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-              <Link to={"/profile"}>
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
-              </Link>
+            <DropdownItem key="profile" className="h-14 gap-2"
+            onPress={()=>navigate("/profile")}>
+            
+              <p className="font-semibold">my profile</p>
+              
             </DropdownItem>
-   
-            <DropdownItem  onClick={logOut} key="logout" color="danger">
+            <DropdownItem key="changepassword" onPress={() => navigate("/change-password")}>
+                      Settings
+                    </DropdownItem>
+     
+            <DropdownItem  onClick={logout} key="logout" color="danger">
               Log Out
             </DropdownItem>
           </DropdownMenu>
