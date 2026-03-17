@@ -47,7 +47,7 @@ export default function navbar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src= {userData.photo}
+              src= {userData?.photo}
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">

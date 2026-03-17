@@ -6,40 +6,33 @@ import { MyPosts } from "./myposts";
 
 
 
-
-
-export  function ProfileCard() {
-   const UserToken = localStorage.getItem("token")?.trim();
+export function ProfileCard() {
+  const UserToken = localStorage.getItem("token")?.trim();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
 
-  console.log(UserToken);  
+  async function FetchMydata() {
+    try {
+      const res = await axios.get("https://route-posts.routemisr.com/users/profile-data", {
+        headers: { Authorization: `Bearer ${UserToken}` }
+      });
+      setUser(res.data.data.user);
+    } catch (err) {
+      console.error("Failed to fetch user:", err);
+    } finally {
+      setLoading(false);
+    }
+  }
 
-
-          async function FetchMydata(){
-
-            const res = await axios.get("https://route-posts.routemisr.com/users/profile-data", {
-              headers: { Authorization: `Bearer ${UserToken}` }
-            })
-             
-            setUser(res.data.data.user)
-            
-            console.log(res.data.data.user);
-         
-            
-         }
-
-  
-
-
-        useEffect(() => {
+  useEffect(() => {
     if (!UserToken) return;
     FetchMydata();
   }, [UserToken]);
 
- 
-
+  
+  if (loading) return <div>Loading...</div>;
+  if (!user) return <div>Failed to load profile.</div>;
 
 
 
